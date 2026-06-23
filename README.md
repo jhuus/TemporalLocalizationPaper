@@ -8,12 +8,7 @@ Clone the repository:
 ```
 git clone https://github.com/jhuus/TemporalLocalizationPaper.git
 ```
-Then download the recordings used in the IoU test:
-```
-python scripts/download_iou.py
-```
-
-Installation of BriteKit is needed only if you wish to run BriteKit commands such as reports. If so, it is best to create a virtual environment, such as a [Python venv](https://docs.python.org/3/library/venv.html). Once you have that set up, install version 1.5.0 of the BriteKit package using pip:
+It is best to create a virtual environment, such as a [Python venv](https://docs.python.org/3/library/venv.html). Once you have that set up, install version 1.5.0 of the BriteKit package using pip:
 ```
 pip install britekit==1.5.0
 ```
@@ -25,6 +20,10 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 Note that cu126 refers to CUDA 12.6. You can check that the BriteKit installation was successful by typing:
 ```
 britekit --help
+```
+Then download the recordings used in the IoU test:
+```
+python scripts/download_iou.py
 ```
 ## Contents
 This repository does not contain training data. Since we ran 78 training runs (39 each for VovNet and HGNet-v2), saved 6 checkpoints for each run and created three ensembles, the total number of checkpoints generated was 486. Therefore we elected to keep only one ensemble and the outputs of 8 training runs in this repository as examples.
