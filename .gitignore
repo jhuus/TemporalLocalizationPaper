@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Mac OS junk
+.DS_Store
+
+# Windows junk
+Thumbs.db
+desktop.ini
+
+# Ignore any directory (at any depth) that starts with an underscore
+# and any file that starts with _tmp_ or _temp_
+**/_*/
+_tmp_*
+_temp_*

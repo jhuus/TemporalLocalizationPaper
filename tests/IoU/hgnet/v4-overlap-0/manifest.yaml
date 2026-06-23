@@ -1,0 +1,712 @@
+# Summary of inference run in YAML format
+classes:
+- name: Alder Flycatcher
+  code: ALFL
+- name: American Bittern
+  code: AMBI
+- name: American Crow
+  code: AMCR
+- name: American Goldfinch
+  code: AGOL
+- name: American Robin
+  code: AMRO
+- name: Barred Owl
+  code: BADO
+- name: Bay-breasted Warbler
+  code: BBWA
+- name: Belted Kingfisher
+  code: BEKI
+- name: Black-capped Chickadee
+  code: BCCH
+- name: Black-throated Green Warbler
+  code: BTNW
+- name: Blue Jay
+  code: BLJA
+- name: Brown Creeper
+  code: BRCR
+- name: Canada Goose
+  code: CANG
+- name: Cape May Warbler
+  code: CMWA
+- name: Cedar Waxwing
+  code: CEDW
+- name: Chipping Sparrow
+  code: CHSP
+- name: Common Raven
+  code: CORA
+- name: Common Yellowthroat
+  code: COYE
+- name: Dark-eyed Junco
+  code: DEJU
+- name: Eastern Kingbird
+  code: EAKI
+- name: Eastern Towhee
+  code: EATO
+- name: Eastern Wood-Pewee
+  code: EAWP
+- name: Field Sparrow
+  code: FISP
+- name: Golden-crowned Kinglet
+  code: GCKI
+- name: Great Horned Owl
+  code: GHOW
+- name: Hermit Thrush
+  code: HETH
+- name: Northern House Wren
+  code: NHWR
+- name: Insects
+  code: Insects
+- name: Noise
+  code: Noise
+- name: Northern Cardinal
+  code: NOCA
+- name: Northern Flicker
+  code: NOFL
+- name: Other
+  code: Other
+- name: Ovenbird
+  code: OVEN
+- name: Pine Siskin
+  code: PISI
+- name: Red-breasted Nuthatch
+  code: RBNU
+- name: Red-winged Blackbird
+  code: RWBL
+- name: Speech
+  code: Speech
+- name: Swainson's Thrush
+  code: SWTH
+- name: Swamp Sparrow
+  code: SWSP
+- name: Tennessee Warbler
+  code: TEWA
+- name: Trumpeter Swan
+  code: TRUS
+- name: Veery
+  code: VEER
+- name: Warbling Vireo
+  code: WAVI
+- name: Western Tanager
+  code: WETA
+- name: White-throated Sparrow
+  code: WTSP
+- name: Wilson's Snipe
+  code: WISN
+- name: Wilson's Warbler
+  code: WIWA
+- name: Winter Wren
+  code: WIWR
+- name: Wood Thrush
+  code: WOTH
+- name: Northern Yellow Warbler
+  code: YEWA
+audio:
+  spec_duration: 3.0
+  spec_height: 192
+  spec_width: 384
+  win_length: 0.058
+  n_fft: null
+  max_freq: 13000
+  min_freq: 200
+  sampling_rate: 28000
+  freq_scale: mel
+  power: 1.0
+  decibels: false
+  top_db: 80.0
+  db_power: 1.0
+  log_freq_gain: 0.6
+  mel_norm: null
+  choose_channel: false
+  check_seconds: 6.0
+  use_spec_cache: true
+  chunks_per_spec: 3
+inference:
+  segment_len: 0.25
+  overlap: 0.0
+  min_score: 0.0
+  num_threads: 3
+  max_models: null
+  autocast: true
+  audio_power: 0.7
+  scaling_coefficient: 1.0
+  scaling_intercept: 0.0
+  label_field: codes
+  block_size: 200
+  openvino_block_size: 100
+  initial_offsets: null
+model 1:
+  identifier: E891325E-51FC-4CB1-87D3-F76C45B7B4A4
+  training_date: '2026-06-20'
+  audio:
+    spec_duration: 3.0
+    spec_height: 192
+    spec_width: 384
+    win_length: 0.058
+    n_fft: null
+    max_freq: 13000
+    min_freq: 200
+    sampling_rate: 28000
+    freq_scale: mel
+    power: 1.0
+    decibels: false
+    top_db: 80.0
+    db_power: 1.0
+    log_freq_gain: 0.6
+    mel_norm: null
+    choose_channel: false
+    check_seconds: 6.0
+    use_spec_cache: false
+    chunks_per_spec: 3
+  train:
+    model_type: hgnet.6
+    head_type: temporal_sed
+    hidden_channels: 384
+    lse_temp: 0.5
+    two_way: true
+    pretrained: false
+    load_ckpt_path: null
+    freeze_backbone: false
+    multi_label: true
+    deterministic: false
+    seed: 100
+    learning_rate: 0.0015
+    batch_size: 64
+    shuffle: true
+    num_epochs: 20
+    warmup_fraction: 0.0
+    save_last_n: 6
+    num_folds: 1
+    val_portion: 0.0
+    train_db: data/training.db
+    train_pickle: data/training-segments.pkl
+    test_pickle: null
+    frame_label_pickle: null
+    num_workers: 3
+    compile: false
+    mixed_precision: false
+    use_class_weights: false
+    weight_exponent: 0.5
+    pos_label_smoothing: 0.1
+    neg_label_smoothing: 0.03
+    optimizer: radam
+    opt_weight_decay: null
+    opt_beta1: null
+    opt_beta2: null
+    drop_rate: 0.1
+    drop_path_rate: null
+    sed_fps: 4
+    frame_loss_weight: 0.5
+    offpeak_weight: 0.0
+    max_per_recording: 4
+    val_max_per_recording: null
+    augment: true
+    max_augmentations: 1
+    noise_class_name: Noise
+    prob_simple_merge: 0.38
+    prob_mixup: 0.0
+    prob_cutmix: 0.0
+    mixup_alpha: 0.4
+    prob_fade1: 0.5
+    min_fade1: 0.1
+    max_fade1: 1.0
+    augmentations:
+    - name: add_real_noise
+      params:
+        max_fade2: 0.8
+        min_fade2: 0.1
+        prob_fade2: 0.2
+      prob: 0.32
+    - name: shift_horizontal
+      params:
+        max_shift: 8
+      prob: 0.5
+    - name: blur
+      params:
+        min_sigma: 0.5
+        max_sigma: 1.0
+      prob: 0.1
+    - name: time_mask
+      params:
+        max_width2: 128
+        num_masks2: 1
+      prob: 0.1
+model 2:
+  identifier: E891325E-51FC-4CB1-87D3-F76C45B7B4A4
+  training_date: '2026-06-20'
+  audio:
+    spec_duration: 3.0
+    spec_height: 192
+    spec_width: 384
+    win_length: 0.058
+    n_fft: null
+    max_freq: 13000
+    min_freq: 200
+    sampling_rate: 28000
+    freq_scale: mel
+    power: 1.0
+    decibels: false
+    top_db: 80.0
+    db_power: 1.0
+    log_freq_gain: 0.6
+    mel_norm: null
+    choose_channel: false
+    check_seconds: 6.0
+    use_spec_cache: false
+    chunks_per_spec: 3
+  train:
+    model_type: hgnet.6
+    head_type: temporal_sed
+    hidden_channels: 384
+    lse_temp: 0.5
+    two_way: true
+    pretrained: false
+    load_ckpt_path: null
+    freeze_backbone: false
+    multi_label: true
+    deterministic: false
+    seed: 100
+    learning_rate: 0.0015
+    batch_size: 64
+    shuffle: true
+    num_epochs: 20
+    warmup_fraction: 0.0
+    save_last_n: 6
+    num_folds: 1
+    val_portion: 0.0
+    train_db: data/training.db
+    train_pickle: data/training-segments.pkl
+    test_pickle: null
+    frame_label_pickle: null
+    num_workers: 3
+    compile: false
+    mixed_precision: false
+    use_class_weights: false
+    weight_exponent: 0.5
+    pos_label_smoothing: 0.1
+    neg_label_smoothing: 0.03
+    optimizer: radam
+    opt_weight_decay: null
+    opt_beta1: null
+    opt_beta2: null
+    drop_rate: 0.1
+    drop_path_rate: null
+    sed_fps: 4
+    frame_loss_weight: 0.5
+    offpeak_weight: 0.0
+    max_per_recording: 4
+    val_max_per_recording: null
+    augment: true
+    max_augmentations: 1
+    noise_class_name: Noise
+    prob_simple_merge: 0.38
+    prob_mixup: 0.0
+    prob_cutmix: 0.0
+    mixup_alpha: 0.4
+    prob_fade1: 0.5
+    min_fade1: 0.1
+    max_fade1: 1.0
+    augmentations:
+    - name: add_real_noise
+      params:
+        max_fade2: 0.8
+        min_fade2: 0.1
+        prob_fade2: 0.2
+      prob: 0.32
+    - name: shift_horizontal
+      params:
+        max_shift: 8
+      prob: 0.5
+    - name: blur
+      params:
+        min_sigma: 0.5
+        max_sigma: 1.0
+      prob: 0.1
+    - name: time_mask
+      params:
+        max_width2: 128
+        num_masks2: 1
+      prob: 0.1
+model 3:
+  identifier: E891325E-51FC-4CB1-87D3-F76C45B7B4A4
+  training_date: '2026-06-20'
+  audio:
+    spec_duration: 3.0
+    spec_height: 192
+    spec_width: 384
+    win_length: 0.058
+    n_fft: null
+    max_freq: 13000
+    min_freq: 200
+    sampling_rate: 28000
+    freq_scale: mel
+    power: 1.0
+    decibels: false
+    top_db: 80.0
+    db_power: 1.0
+    log_freq_gain: 0.6
+    mel_norm: null
+    choose_channel: false
+    check_seconds: 6.0
+    use_spec_cache: false
+    chunks_per_spec: 3
+  train:
+    model_type: hgnet.6
+    head_type: temporal_sed
+    hidden_channels: 384
+    lse_temp: 0.5
+    two_way: true
+    pretrained: false
+    load_ckpt_path: null
+    freeze_backbone: false
+    multi_label: true
+    deterministic: false
+    seed: 100
+    learning_rate: 0.0015
+    batch_size: 64
+    shuffle: true
+    num_epochs: 20
+    warmup_fraction: 0.0
+    save_last_n: 6
+    num_folds: 1
+    val_portion: 0.0
+    train_db: data/training.db
+    train_pickle: data/training-segments.pkl
+    test_pickle: null
+    frame_label_pickle: null
+    num_workers: 3
+    compile: false
+    mixed_precision: false
+    use_class_weights: false
+    weight_exponent: 0.5
+    pos_label_smoothing: 0.1
+    neg_label_smoothing: 0.03
+    optimizer: radam
+    opt_weight_decay: null
+    opt_beta1: null
+    opt_beta2: null
+    drop_rate: 0.1
+    drop_path_rate: null
+    sed_fps: 4
+    frame_loss_weight: 0.5
+    offpeak_weight: 0.0
+    max_per_recording: 4
+    val_max_per_recording: null
+    augment: true
+    max_augmentations: 1
+    noise_class_name: Noise
+    prob_simple_merge: 0.38
+    prob_mixup: 0.0
+    prob_cutmix: 0.0
+    mixup_alpha: 0.4
+    prob_fade1: 0.5
+    min_fade1: 0.1
+    max_fade1: 1.0
+    augmentations:
+    - name: add_real_noise
+      params:
+        max_fade2: 0.8
+        min_fade2: 0.1
+        prob_fade2: 0.2
+      prob: 0.32
+    - name: shift_horizontal
+      params:
+        max_shift: 8
+      prob: 0.5
+    - name: blur
+      params:
+        min_sigma: 0.5
+        max_sigma: 1.0
+      prob: 0.1
+    - name: time_mask
+      params:
+        max_width2: 128
+        num_masks2: 1
+      prob: 0.1
+model 4:
+  identifier: E891325E-51FC-4CB1-87D3-F76C45B7B4A4
+  training_date: '2026-06-20'
+  audio:
+    spec_duration: 3.0
+    spec_height: 192
+    spec_width: 384
+    win_length: 0.058
+    n_fft: null
+    max_freq: 13000
+    min_freq: 200
+    sampling_rate: 28000
+    freq_scale: mel
+    power: 1.0
+    decibels: false
+    top_db: 80.0
+    db_power: 1.0
+    log_freq_gain: 0.6
+    mel_norm: null
+    choose_channel: false
+    check_seconds: 6.0
+    use_spec_cache: false
+    chunks_per_spec: 3
+  train:
+    model_type: hgnet.6
+    head_type: temporal_sed
+    hidden_channels: 384
+    lse_temp: 0.5
+    two_way: true
+    pretrained: false
+    load_ckpt_path: null
+    freeze_backbone: false
+    multi_label: true
+    deterministic: false
+    seed: 100
+    learning_rate: 0.0015
+    batch_size: 64
+    shuffle: true
+    num_epochs: 20
+    warmup_fraction: 0.0
+    save_last_n: 6
+    num_folds: 1
+    val_portion: 0.0
+    train_db: data/training.db
+    train_pickle: data/training-segments.pkl
+    test_pickle: null
+    frame_label_pickle: null
+    num_workers: 3
+    compile: false
+    mixed_precision: false
+    use_class_weights: false
+    weight_exponent: 0.5
+    pos_label_smoothing: 0.1
+    neg_label_smoothing: 0.03
+    optimizer: radam
+    opt_weight_decay: null
+    opt_beta1: null
+    opt_beta2: null
+    drop_rate: 0.1
+    drop_path_rate: null
+    sed_fps: 4
+    frame_loss_weight: 0.5
+    offpeak_weight: 0.0
+    max_per_recording: 4
+    val_max_per_recording: null
+    augment: true
+    max_augmentations: 1
+    noise_class_name: Noise
+    prob_simple_merge: 0.38
+    prob_mixup: 0.0
+    prob_cutmix: 0.0
+    mixup_alpha: 0.4
+    prob_fade1: 0.5
+    min_fade1: 0.1
+    max_fade1: 1.0
+    augmentations:
+    - name: add_real_noise
+      params:
+        max_fade2: 0.8
+        min_fade2: 0.1
+        prob_fade2: 0.2
+      prob: 0.32
+    - name: shift_horizontal
+      params:
+        max_shift: 8
+      prob: 0.5
+    - name: blur
+      params:
+        min_sigma: 0.5
+        max_sigma: 1.0
+      prob: 0.1
+    - name: time_mask
+      params:
+        max_width2: 128
+        num_masks2: 1
+      prob: 0.1
+model 5:
+  identifier: E891325E-51FC-4CB1-87D3-F76C45B7B4A4
+  training_date: '2026-06-20'
+  audio:
+    spec_duration: 3.0
+    spec_height: 192
+    spec_width: 384
+    win_length: 0.058
+    n_fft: null
+    max_freq: 13000
+    min_freq: 200
+    sampling_rate: 28000
+    freq_scale: mel
+    power: 1.0
+    decibels: false
+    top_db: 80.0
+    db_power: 1.0
+    log_freq_gain: 0.6
+    mel_norm: null
+    choose_channel: false
+    check_seconds: 6.0
+    use_spec_cache: false
+    chunks_per_spec: 3
+  train:
+    model_type: hgnet.6
+    head_type: temporal_sed
+    hidden_channels: 384
+    lse_temp: 0.5
+    two_way: true
+    pretrained: false
+    load_ckpt_path: null
+    freeze_backbone: false
+    multi_label: true
+    deterministic: false
+    seed: 100
+    learning_rate: 0.0015
+    batch_size: 64
+    shuffle: true
+    num_epochs: 20
+    warmup_fraction: 0.0
+    save_last_n: 6
+    num_folds: 1
+    val_portion: 0.0
+    train_db: data/training.db
+    train_pickle: data/training-segments.pkl
+    test_pickle: null
+    frame_label_pickle: null
+    num_workers: 3
+    compile: false
+    mixed_precision: false
+    use_class_weights: false
+    weight_exponent: 0.5
+    pos_label_smoothing: 0.1
+    neg_label_smoothing: 0.03
+    optimizer: radam
+    opt_weight_decay: null
+    opt_beta1: null
+    opt_beta2: null
+    drop_rate: 0.1
+    drop_path_rate: null
+    sed_fps: 4
+    frame_loss_weight: 0.5
+    offpeak_weight: 0.0
+    max_per_recording: 4
+    val_max_per_recording: null
+    augment: true
+    max_augmentations: 1
+    noise_class_name: Noise
+    prob_simple_merge: 0.38
+    prob_mixup: 0.0
+    prob_cutmix: 0.0
+    mixup_alpha: 0.4
+    prob_fade1: 0.5
+    min_fade1: 0.1
+    max_fade1: 1.0
+    augmentations:
+    - name: add_real_noise
+      params:
+        max_fade2: 0.8
+        min_fade2: 0.1
+        prob_fade2: 0.2
+      prob: 0.32
+    - name: shift_horizontal
+      params:
+        max_shift: 8
+      prob: 0.5
+    - name: blur
+      params:
+        min_sigma: 0.5
+        max_sigma: 1.0
+      prob: 0.1
+    - name: time_mask
+      params:
+        max_width2: 128
+        num_masks2: 1
+      prob: 0.1
+model 6:
+  identifier: E891325E-51FC-4CB1-87D3-F76C45B7B4A4
+  training_date: '2026-06-20'
+  audio:
+    spec_duration: 3.0
+    spec_height: 192
+    spec_width: 384
+    win_length: 0.058
+    n_fft: null
+    max_freq: 13000
+    min_freq: 200
+    sampling_rate: 28000
+    freq_scale: mel
+    power: 1.0
+    decibels: false
+    top_db: 80.0
+    db_power: 1.0
+    log_freq_gain: 0.6
+    mel_norm: null
+    choose_channel: false
+    check_seconds: 6.0
+    use_spec_cache: false
+    chunks_per_spec: 3
+  train:
+    model_type: hgnet.6
+    head_type: temporal_sed
+    hidden_channels: 384
+    lse_temp: 0.5
+    two_way: true
+    pretrained: false
+    load_ckpt_path: null
+    freeze_backbone: false
+    multi_label: true
+    deterministic: false
+    seed: 100
+    learning_rate: 0.0015
+    batch_size: 64
+    shuffle: true
+    num_epochs: 20
+    warmup_fraction: 0.0
+    save_last_n: 6
+    num_folds: 1
+    val_portion: 0.0
+    train_db: data/training.db
+    train_pickle: data/training-segments.pkl
+    test_pickle: null
+    frame_label_pickle: null
+    num_workers: 3
+    compile: false
+    mixed_precision: false
+    use_class_weights: false
+    weight_exponent: 0.5
+    pos_label_smoothing: 0.1
+    neg_label_smoothing: 0.03
+    optimizer: radam
+    opt_weight_decay: null
+    opt_beta1: null
+    opt_beta2: null
+    drop_rate: 0.1
+    drop_path_rate: null
+    sed_fps: 4
+    frame_loss_weight: 0.5
+    offpeak_weight: 0.0
+    max_per_recording: 4
+    val_max_per_recording: null
+    augment: true
+    max_augmentations: 1
+    noise_class_name: Noise
+    prob_simple_merge: 0.38
+    prob_mixup: 0.0
+    prob_cutmix: 0.0
+    mixup_alpha: 0.4
+    prob_fade1: 0.5
+    min_fade1: 0.1
+    max_fade1: 1.0
+    augmentations:
+    - name: add_real_noise
+      params:
+        max_fade2: 0.8
+        min_fade2: 0.1
+        prob_fade2: 0.2
+      prob: 0.32
+    - name: shift_horizontal
+      params:
+        max_shift: 8
+      prob: 0.5
+    - name: blur
+      params:
+        min_sigma: 0.5
+        max_sigma: 1.0
+      prob: 0.1
+    - name: time_mask
+      params:
+        max_width2: 128
+        num_masks2: 1
+      prob: 0.1

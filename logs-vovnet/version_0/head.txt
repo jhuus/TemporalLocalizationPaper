@@ -1,0 +1,8 @@
+=== Default Head ===
+
+ClassifierHead(
+  (global_pool): SelectAdaptivePool2d(pool_type=avg, flatten=Flatten(start_dim=1, end_dim=-1))
+  (drop): Dropout(p=0.1, inplace=False)
+  (fc): Linear(in_features=216, out_features=50, bias=True)
+  (flatten): Identity()
+)

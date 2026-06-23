@@ -1,0 +1,210 @@
+model_type: vovnet.5
+head_type: temporal_sed
+hidden_channels: 384
+train_class_names:
+- Alder Flycatcher
+- American Bittern
+- American Crow
+- American Goldfinch
+- American Robin
+- Barred Owl
+- Bay-breasted Warbler
+- Belted Kingfisher
+- Black-capped Chickadee
+- Black-throated Green Warbler
+- Blue Jay
+- Brown Creeper
+- Canada Goose
+- Cape May Warbler
+- Cedar Waxwing
+- Chipping Sparrow
+- Common Raven
+- Common Yellowthroat
+- Dark-eyed Junco
+- Eastern Kingbird
+- Eastern Towhee
+- Eastern Wood-Pewee
+- Field Sparrow
+- Golden-crowned Kinglet
+- Great Horned Owl
+- Hermit Thrush
+- Northern House Wren
+- Insects
+- Noise
+- Northern Cardinal
+- Northern Flicker
+- Other
+- Ovenbird
+- Pine Siskin
+- Red-breasted Nuthatch
+- Red-winged Blackbird
+- Speech
+- Swainson's Thrush
+- Swamp Sparrow
+- Tennessee Warbler
+- Trumpeter Swan
+- Veery
+- Warbling Vireo
+- Western Tanager
+- White-throated Sparrow
+- Wilson's Snipe
+- Wilson's Warbler
+- Winter Wren
+- Wood Thrush
+- Northern Yellow Warbler
+train_class_codes:
+- ALFL
+- AMBI
+- AMCR
+- AGOL
+- AMRO
+- BADO
+- BBWA
+- BEKI
+- BCCH
+- BTNW
+- BLJA
+- BRCR
+- CANG
+- CMWA
+- CEDW
+- CHSP
+- CORA
+- COYE
+- DEJU
+- EAKI
+- EATO
+- EAWP
+- FISP
+- GCKI
+- GHOW
+- HETH
+- NHWR
+- Insects
+- Noise
+- NOCA
+- NOFL
+- Other
+- OVEN
+- PISI
+- RBNU
+- RWBL
+- Speech
+- SWTH
+- SWSP
+- TEWA
+- TRUS
+- VEER
+- WAVI
+- WETA
+- WTSP
+- WISN
+- WIWA
+- WIWR
+- WOTH
+- YEWA
+train_class_alt_names:
+- Empidonax alnorum
+- Botaurus lentiginosus
+- Corvus brachyrhynchos
+- Spinus tristis
+- Turdus migratorius
+- Strix varia
+- Setophaga castanea
+- Megaceryle alcyon
+- Poecile atricapillus
+- Setophaga virens
+- Cyanocitta cristata
+- Certhia americana
+- Branta canadensis
+- Setophaga tigrina
+- Bombycilla cedrorum
+- Spizella passerina
+- Corvus corax
+- Geothlypis trichas
+- Junco hyemalis
+- Tyrannus tyrannus
+- Pipilo erythrophthalmus
+- Contopus virens
+- Spizella pusilla
+- Regulus satrapa
+- Bubo virginianus
+- Catharus guttatus
+- Troglodytes aedon
+- Insects
+- Noise
+- Cardinalis cardinalis
+- Colaptes auratus
+- Other
+- Seiurus aurocapilla
+- Spinus pinus
+- Sitta canadensis
+- Agelaius phoeniceus
+- Speech
+- Catharus ustulatus
+- Melospiza georgiana
+- Leiothlypis peregrina
+- Cygnus buccinator
+- Catharus fuscescens
+- Vireo gilvus
+- Piranga ludoviciana
+- Zonotrichia albicollis
+- Gallinago delicata
+- Cardellina pusilla
+- Troglodytes hiemalis
+- Hylocichla mustelina
+- Setophaga aestiva
+train_class_alt_codes:
+- aldfly
+- amebit
+- amecro
+- amegfi
+- amerob
+- brdowl
+- babwar
+- belkin1
+- bkcchi
+- btnwar
+- blujay
+- brncre
+- cangoo
+- camwar
+- cedwax
+- chispa
+- comrav
+- comyel
+- daejun
+- easkin
+- eastow
+- eawpew
+- fiespa
+- gockin
+- grhowl
+- herthr
+- houwre
+- Insects
+- Noise
+- norcar
+- norfli
+- Other
+- ovenbi1
+- pinsis
+- rebnut
+- rewbla
+- Speech
+- swathr
+- swaspa
+- tenwar
+- truswa
+- veery
+- warvir
+- westan
+- whtspa
+- wilsni1
+- wlswar
+- winwre3
+- woothr
+- yelwar
+num_train_specs: 91478
+multi_label: true
+drop_rate: 0.1

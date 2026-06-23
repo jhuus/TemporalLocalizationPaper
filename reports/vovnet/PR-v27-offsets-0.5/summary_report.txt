@@ -1,0 +1,19 @@
+For annotated classes only:
+   Macro-averaged PR-AUC score = 0.9319
+   Micro-averaged PR-AUC score = 0.8999
+   Macro-averaged ROC-AUC score = 0.9929
+   Micro-averaged ROC-AUC score = 0.9864
+   For threshold = 0.8:
+      Precision = 97.42%
+      Recall = 65.10%
+
+For all trained classes:
+   Micro-averaged PR-AUC score = 0.8999
+   Micro-averaged ROC-AUC score = 0.9864
+   For threshold = 0.8:
+      Precision = 97.42%
+      Recall = 65.10%
+
+Average of macro-PR-AUC-annotated and micro-PR-AUC-trained = 0.9159
+Average of macro-ROC-annotated and micro-ROC-trained = 0.9897
+Average TP score = 0.7631

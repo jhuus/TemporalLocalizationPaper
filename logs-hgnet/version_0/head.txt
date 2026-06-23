@@ -1,0 +1,12 @@
+=== Default Head ===
+
+ClassifierHead(
+  (global_pool): SelectAdaptivePool2d(pool_type=avg, flatten=Identity())
+  (last_conv): Sequential(
+    (0): Conv2d(768, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (1): ReLU()
+  )
+  (dropout): Dropout(p=0.1, inplace=False)
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (fc): Linear(in_features=2048, out_features=50, bias=True)
+)

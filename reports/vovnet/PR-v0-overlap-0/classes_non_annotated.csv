@@ -1,0 +1,1 @@
+class,predictions >= .25,predictions >= .5,predictions >= .75

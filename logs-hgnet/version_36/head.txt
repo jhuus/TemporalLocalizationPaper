@@ -1,0 +1,15 @@
+=== temporal_sed ===
+
+TemporalSEDHead(
+  (reduce): Sequential(
+    (0): Conv1d(768, 384, kernel_size=(1,), stride=(1,), bias=False)
+    (1): BatchNorm1d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace=True)
+  )
+  (conv_fwd): Conv1d(384, 192, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+  (conv_bwd): Conv1d(384, 192, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+  (bn): BatchNorm1d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (act): ReLU(inplace=True)
+  (drop): Dropout(p=0.1, inplace=False)
+  (frame_head): Conv1d(384, 50, kernel_size=(1,), stride=(1,))
+)

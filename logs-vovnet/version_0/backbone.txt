@@ -1,0 +1,236 @@
+=== vovnet.5 ===
+
+VovNet(
+  (stem): Sequential(
+    (0): ConvNormAct(
+      (conv): Conv2d(1, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn): BatchNormAct2d(
+        32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+        (drop): Identity()
+        (act): ReLU(inplace=True)
+      )
+    )
+    (1): ConvNormAct(
+      (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNormAct2d(
+        32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+        (drop): Identity()
+        (act): ReLU(inplace=True)
+      )
+    )
+    (2): ConvNormAct(
+      (conv): Conv2d(32, 48, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (bn): BatchNormAct2d(
+        48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+        (drop): Identity()
+        (act): ReLU(inplace=True)
+      )
+    )
+  )
+  (stages): Sequential(
+    (0): OsaStage(
+      (blocks): Sequential(
+        (0): OsaBlock(
+          (conv_mid): SequentialAppendList(
+            (0): ConvNormAct(
+              (conv): Conv2d(48, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+            (1): ConvNormAct(
+              (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+          )
+          (conv_concat): ConvNormAct(
+            (conv): Conv2d(176, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNormAct2d(
+              80, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+              (drop): Identity()
+              (act): ReLU(inplace=True)
+            )
+          )
+          (attn): EcaModule(
+            (conv): Conv1d(1, 1, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+            (gate): Sigmoid()
+          )
+        )
+      )
+    )
+    (1): OsaStage(
+      (pool): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (blocks): Sequential(
+        (0): OsaBlock(
+          (conv_mid): SequentialAppendList(
+            (0): ConvNormAct(
+              (conv): Conv2d(80, 88, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                88, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+            (1): ConvNormAct(
+              (conv): Conv2d(88, 88, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                88, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+          )
+          (conv_concat): ConvNormAct(
+            (conv): Conv2d(256, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNormAct2d(
+              120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+              (drop): Identity()
+              (act): ReLU(inplace=True)
+            )
+          )
+        )
+        (1): OsaBlock(
+          (conv_mid): SequentialAppendList(
+            (0): ConvNormAct(
+              (conv): Conv2d(120, 88, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                88, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+            (1): ConvNormAct(
+              (conv): Conv2d(88, 88, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                88, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+          )
+          (conv_concat): ConvNormAct(
+            (conv): Conv2d(296, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNormAct2d(
+              120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+              (drop): Identity()
+              (act): ReLU(inplace=True)
+            )
+          )
+          (attn): EcaModule(
+            (conv): Conv1d(1, 1, kernel_size=(3,), stride=(1,), padding=(1,), bias=False)
+            (gate): Sigmoid()
+          )
+        )
+      )
+    )
+    (2): OsaStage(
+      (pool): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (blocks): Sequential(
+        (0): OsaBlock(
+          (conv_mid): SequentialAppendList(
+            (0): ConvNormAct(
+              (conv): Conv2d(120, 120, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+            (1): ConvNormAct(
+              (conv): Conv2d(120, 120, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+          )
+          (conv_concat): ConvNormAct(
+            (conv): Conv2d(360, 168, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNormAct2d(
+              168, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+              (drop): Identity()
+              (act): ReLU(inplace=True)
+            )
+          )
+        )
+        (1): OsaBlock(
+          (conv_mid): SequentialAppendList(
+            (0): ConvNormAct(
+              (conv): Conv2d(168, 120, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+            (1): ConvNormAct(
+              (conv): Conv2d(120, 120, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+          )
+          (conv_concat): ConvNormAct(
+            (conv): Conv2d(408, 168, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNormAct2d(
+              168, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+              (drop): Identity()
+              (act): ReLU(inplace=True)
+            )
+          )
+          (attn): EcaModule(
+            (conv): Conv1d(1, 1, kernel_size=(5,), stride=(1,), padding=(2,), bias=False)
+            (gate): Sigmoid()
+          )
+        )
+      )
+    )
+    (3): OsaStage(
+      (pool): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=True)
+      (blocks): Sequential(
+        (0): OsaBlock(
+          (conv_mid): SequentialAppendList(
+            (0): ConvNormAct(
+              (conv): Conv2d(168, 152, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                152, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+            (1): ConvNormAct(
+              (conv): Conv2d(152, 152, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+              (bn): BatchNormAct2d(
+                152, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+                (drop): Identity()
+                (act): ReLU(inplace=True)
+              )
+            )
+          )
+          (conv_concat): ConvNormAct(
+            (conv): Conv2d(472, 216, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn): BatchNormAct2d(
+              216, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True
+              (drop): Identity()
+              (act): ReLU(inplace=True)
+            )
+          )
+          (attn): EcaModule(
+            (conv): Conv1d(1, 1, kernel_size=(5,), stride=(1,), padding=(2,), bias=False)
+            (gate): Sigmoid()
+          )
+        )
+      )
+    )
+  )
+  (head): Identity()
+)

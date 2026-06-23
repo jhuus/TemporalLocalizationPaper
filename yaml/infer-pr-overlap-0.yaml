@@ -1,0 +1,16 @@
+# Use this in britekit analyze command (--config yaml/infer-overlap-0.yaml).
+audio:
+  spec_duration: 3.0
+  spec_height: 192
+  spec_width: 384
+  min_freq: 200
+  max_freq: 13000
+  win_length: .058
+  sampling_rate: 28000
+  use_spec_cache: true
+infer:
+  min_score: 0
+  segment_len: 3.0
+  overlap: 0
+misc:
+  exclude_list: "data/exclude-pr.txt"

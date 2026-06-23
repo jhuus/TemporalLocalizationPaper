@@ -1,0 +1,5 @@
+IoU at t1 (0.6000) = 0.7250
+IoU at t2 (0.8000) = 0.6620
+Maximum IoU = 0.7437 at threshold = 0.6400
+IoU AUC = 0.5499
+Average TP score = 0.8579

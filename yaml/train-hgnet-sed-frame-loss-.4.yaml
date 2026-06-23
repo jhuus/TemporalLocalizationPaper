@@ -1,0 +1,52 @@
+audio:
+  # Must specify spec duration, height and width here, but it's best
+  # to specify all non-defaults so they appear in inference manifest.
+  spec_duration: 3.0
+  spec_height: 192
+  spec_width: 384
+  min_freq: 200
+  max_freq: 13000
+  win_length: .058
+  sampling_rate: 28000
+
+train:
+  train_pickle: "data/training-segments.pkl"
+  frame_label_pickle: "data/training-frames.pkl"
+  model_type: "hgnet.6"
+  head_type: "temporal_sed"
+  hidden_channels: 384
+  optimizer: "radam"
+  max_per_recording: 4
+  frame_loss_weight: .4
+
+  learning_rate: .0015
+  pos_label_smoothing: 0.1
+  neg_label_smoothing: 0.03
+  drop_rate: 0.1
+
+  prob_simple_merge: 0.38
+  augmentations:
+  - name: add_real_noise
+    params:
+      max_fade2: 0.8
+      min_fade2: 0.1
+      prob_fade2: 0.2
+    prob: 0.32
+  - name: shift_horizontal
+    params:
+      max_shift: 8
+    prob: 0.5
+  - name: blur
+    params:
+      min_sigma: 0.5
+      max_sigma: 1.0
+    prob: 0.1
+  - name: time_mask
+    params:
+      max_width2: 128
+      num_masks2: 1
+    prob: 0.1
+
+  num_epochs: 20
+  save_last_n: 6
+  seed: 100
