@@ -1,5 +1,5 @@
 ## Introduction
-This repository contains supporting files for the paper *Improving the Temporal Localization of Bioacoustic Recognizers*. Cite as:
+This repository contains supporting files for the paper *Improving Temporal Localization in Bioacoustic Recognizers*. Cite as:
 
 TBD
 
